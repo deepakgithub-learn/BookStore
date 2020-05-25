@@ -22,18 +22,25 @@ public class CreateUser extends GetServerUrl{
 //		{"userID":"1c5aec31-6b79-4663-ac8c-eef3d24f6dd1","userName":"deepakbook1211","books":[]}
 
 		String createUser = response.getBody().asString();
+		//System.out.println(createUser);
 		ResponseValidation.validateStatusCode(response, 201);
 		String userID = ResponseValidation.parseJson(createUser, "userID");
 		System.out.println(userID);
-		
+//		
 		String generateToken = GenerateToken.generateToken();
-		if (generateToken.equalsIgnoreCase("User authorized successfully")) {
+		System.out.println(generateToken);
+		
+		if (generateToken.equalsIgnoreCase("User authorized successfully.")) {
 			String getUserDetails = GetUserDetails.getUserDetails(userID);
+			System.out.println("----- Get User Details -----");
 			System.out.println(getUserDetails);
 		}
 		
+		// Just to test whether this branch is merged
 		else {
+			System.out.println("----- Generate Token -----");
 			System.out.println(generateToken);
 		}
+//	}
 	}
 }
