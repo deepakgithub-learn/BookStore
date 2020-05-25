@@ -17,9 +17,13 @@ public class GetUserDetails extends GetServerUrl{
 		
 		String userAPI = ApiUrls.GET_USER_DETAILS;
 		String userDetailsAPI = userAPI + userID;
+		
+		System.out.println("-------User Details API------");
+		System.out.println(userDetailsAPI);
 		Response response = RestAssured.given().headers(ApiHeaders.headerConfigs()).when().get(userDetailsAPI);
 		String getUserDetails = response.getBody().asString();
 
+		System.out.println(getUserDetails);
 		return getUserDetails;
 	}
 }
