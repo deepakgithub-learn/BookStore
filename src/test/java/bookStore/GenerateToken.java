@@ -24,5 +24,8 @@ public class GenerateToken extends GetServerUrl{
 		String authorizationMessage = ResponseValidation.parseJson(generateToken, "result");
 		
 		return authorizationMessage;
+
+		System.out.println("---Learning Branch---");
+
 	}
 }
