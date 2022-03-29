@@ -23,6 +23,7 @@ public class GetUserDetails extends GetServerUrl{
 		Response response = RestAssured.given().headers(ApiHeaders.headerConfigs()).when().get(userDetailsAPI);
 		String getUserDetails = response.getBody().asString();
 
+		System.out.println ("This is a test comment");
 		System.out.println(getUserDetails);
 		return getUserDetails;
 	}
