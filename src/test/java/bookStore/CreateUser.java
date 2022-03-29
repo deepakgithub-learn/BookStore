@@ -19,8 +19,7 @@ public class CreateUser extends GetServerUrl{
 		FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/JsonFiles/createuser.json");
 		Response response = RestAssured.given().headers(ApiHeaders.headerConfigs()).body(file).post(ApiUrls.CREATE_USER);		
 		
-		System.out.println ("This is a test comment");
-//		{"userID":"1c5aec31-6b79-4663-ac8c-eef3d24f6dd1","userName":"deepakbook1211","books":[]}
+		// {"userID":"1c5aec31-6b79-4663-ac8c-eef3d24f6dd1","userName":"deepakbook1211","books":[]}
 
 		String createUser = response.getBody().asString();
 		//System.out.println(createUser);
@@ -28,8 +27,6 @@ public class CreateUser extends GetServerUrl{
 		String userID = ResponseValidation.parseJson(createUser, "userID");
 		System.out.println(userID);
 
-		System.out.println ("This is a test comment");
-//		
 		String generateToken = GenerateToken.generateToken();
 		System.out.println(generateToken);
 		
@@ -38,13 +35,11 @@ public class CreateUser extends GetServerUrl{
 			System.out.println("----- Get User Details -----");
 			System.out.println(getUserDetails);
 		}
-		System.out.println ("This is a test comment");
-		
+
 		// Just to test whether this branch is merged
 		else {
 			System.out.println("----- Generate Token -----");
 			System.out.println(generateToken);
 		}
-//	}
 	}
 }

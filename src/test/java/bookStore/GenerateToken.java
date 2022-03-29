@@ -21,8 +21,6 @@ public class GenerateToken extends GetServerUrl{
 		String generateToken = response.getBody().asString();
 		
 		ResponseValidation.validateStatusCode(response, 200);
-		System.out.println ("This is a test comment");
-
 		String authorizationMessage = ResponseValidation.parseJson(generateToken, "result");
 		
 		return authorizationMessage;
